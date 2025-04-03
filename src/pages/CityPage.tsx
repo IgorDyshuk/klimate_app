@@ -1,7 +1,11 @@
+import {useParams} from "react-router-dom";
+
 export default function CityPage() {
+    const {cityName} = useParams()
+
     return (
         <>
-            City
+            <h1>Forecast for {cityName}</h1>
         </>
     )
 }
