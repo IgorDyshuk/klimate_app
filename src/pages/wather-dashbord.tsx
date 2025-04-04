@@ -1,4 +1,4 @@
-export default function WatherDashbord() {
+export default function WeatherDashboard() {
     return (
         <>
             Wather Dashbord
