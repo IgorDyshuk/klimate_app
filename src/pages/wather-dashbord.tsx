@@ -4,6 +4,7 @@ import {useGetLocation} from "@/hooks/use-geolocation.ts";
 import WeatherSkeleton from "@/components/loading-skeleton.tsx";
 import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert.tsx";
 import {useForecastQuery, useReverseGeocodeQuery, useWeatherQuery} from "@/hooks/use-weather.ts";
+import CurrentWeather from "@/components/current-weather.tsx";
 
 export default function WeatherDashboard() {
     const {
@@ -98,7 +99,18 @@ export default function WeatherDashboard() {
                 </Button>
             </div>
 
-            {/*Current and Hourly Weather*/}
+            <div className="grid gap-6">
+                <div>
+                    <CurrentWeather data={weatherQuery.data} locationName={locationName} />
+                    {/*current weather*/}
+                    {/*hourly temperature*/}
+                </div>
+
+                <div>
+                    {/*details*/}
+                    {/*forecast*/}
+                </div>
+            </div>
         </div>
     )
 }
