@@ -9,7 +9,7 @@ export default function Header() {
     return (
         <header
             className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60">
-            <div className={'container mx-auto px-4 flex h-16 items-center justify-between'}>
+            <div className={'container mx-auto sm:px-6 lg:px-8 flex h-16 items-center justify-between'}>
                 <Link to="/">
                     <img src={isDark ? '/logo.png' : '/logo2.png'} alt="Klimate logo" className={'h-14'}/>
                 </Link>

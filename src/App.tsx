@@ -1,6 +1,6 @@
 import './App.css'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Layout from "@/components/ui/layout.tsx";
+import Layout from "@/components/layout.tsx";
 import {ThemeProvider} from "@/contex/theme-proider.tsx";
 import WeatherDashboard from "@/pages/wather-dashbord.tsx";
 import CityPage from "@/pages/CityPage.tsx";
