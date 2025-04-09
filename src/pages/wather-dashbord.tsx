@@ -7,6 +7,7 @@ import {useForecastQuery, useReverseGeocodeQuery, useWeatherQuery} from "@/hooks
 import CurrentWeather from "@/components/current-weather.tsx";
 import HourlyTemperature from "@/components/hourly-temperature.tsx";
 import WeatherDetails from "@/components/weather-details.tsx";
+import WeatherForecast from "@/components/weather-forecst.tsx";
 
 export default function WeatherDashboard() {
     const {
@@ -110,11 +111,12 @@ export default function WeatherDashboard() {
                     <HourlyTemperature data={forecastQuery.data}/>
                 </div>
 
-                <div>
+                <div className={"grid gap-6 md:grid-cols-2 items-start"}>
                     {/*details*/}
                     <WeatherDetails data={weatherQuery.data}/>
 
                     {/*forecast*/}
+                    <WeatherForecast data={forecastQuery.data}/>
                 </div>
             </div>
         </div>

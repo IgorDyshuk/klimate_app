@@ -14,7 +14,7 @@ export default function CurrentWeather({data, locationName}: CurrentWeatherProps
         wind: {speed}
     } = data
 
-    const formantTemp = (temp: number) => `${Math.round(temp)}°`
+    const formatTemp = (temp: number) => `${Math.round(temp)}°`
 
     return (
         <>
@@ -38,21 +38,21 @@ export default function CurrentWeather({data, locationName}: CurrentWeatherProps
 
                             <div className={"flex items-center gap-2"}>
                                 <p className={"text-7xl font-bold tracking-tighter"}>
-                                    {formantTemp(temp)}
+                                    {formatTemp(temp)}
                                 </p>
 
                                 <div className={"space-y-1"}>
                                     <p className={"text-sm font-medium text-muted-foreground"}>
-                                        Feels like {formantTemp(feels_like)}
+                                        Feels like {formatTemp(feels_like)}
                                     </p>
                                     <div className={"flex gap-2 text-sm font-medium"}>
                                         <span className={"flex items-center gap-1 text-blue-500"}>
                                             <ArrowDown className={"h-3 w-3"}/>
-                                            {formantTemp(temp_min)}
+                                            {formatTemp(temp_min)}
                                         </span>
                                         <span className={"flex items-center gap-1 text-red-500"}>
                                             <ArrowUp className={"h-3 w-3"}/>
-                                            {formantTemp(temp_max)}
+                                            {formatTemp(temp_max)}
                                         </span>
                                     </div>
                                 </div>
