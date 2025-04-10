@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Layout from "@/components/layout.tsx";
 import {ThemeProvider} from "@/contex/theme-proider.tsx";
 import WeatherDashboard from "@/pages/wather-dashbord.tsx";
-import CityPage from "@/pages/CityPage.tsx";
+import CityPage from "@/pages/city-page.tsx";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 

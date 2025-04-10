@@ -92,7 +92,7 @@ export default function WeatherDashboard() {
         <div className={"space-y-4"}>
             {/*Favourite Cities*/}
             <div className="flex items-center justify-between">
-                <h1 className={"text-x1 font-bold tracking-tight"}>My Location</h1>
+                <h1 className={"text-xl font-bold tracking-tight"}>My Location</h1>
                 <Button variant={'outline'}
                         size={"icon"}
                         onClick={handleRefresh}
