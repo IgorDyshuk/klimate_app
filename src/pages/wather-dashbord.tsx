@@ -8,6 +8,7 @@ import CurrentWeather from "@/components/current-weather.tsx";
 import HourlyTemperature from "@/components/hourly-temperature.tsx";
 import WeatherDetails from "@/components/weather-details.tsx";
 import WeatherForecast from "@/components/weather-forecst.tsx";
+import FavouriteCities from "@/components/favourite-cities.tsx";
 
 export default function WeatherDashboard() {
     const {
@@ -90,7 +91,7 @@ export default function WeatherDashboard() {
 
     return (
         <div className={"space-y-4"}>
-            {/*Favourite Cities*/}
+            <FavouriteCities/>
             <div className="flex items-center justify-between">
                 <h1 className={"text-xl font-bold tracking-tight"}>My Location</h1>
                 <Button variant={'outline'}
