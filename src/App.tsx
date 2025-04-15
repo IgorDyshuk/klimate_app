@@ -1,5 +1,5 @@
 import './App.css'
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {HashRouter, Routes, Route} from "react-router-dom";
 import Layout from "@/components/layout.tsx";
 import {ThemeProvider} from "@/contex/theme-proider.tsx";
 import WeatherDashboard from "@/pages/wather-dashbord.tsx";
@@ -24,7 +24,7 @@ function App() {
     return (
         <>
             <QueryClientProvider client={queryClient}>
-                <BrowserRouter>
+                <HashRouter>
                     <ThemeProvider defaultTheme="dark">
                         <Layout>
                             <Routes>
@@ -34,7 +34,7 @@ function App() {
                         </Layout>
                         <Toaster richColors/>
                     </ThemeProvider>
-                </BrowserRouter>
+                </HashRouter>
                 <ReactQueryDevtools initialIsOpen={false}/>
             </QueryClientProvider>
         </>

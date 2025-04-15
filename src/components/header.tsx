@@ -12,7 +12,7 @@ export default function Header() {
             className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60">
             <div className={'container mx-auto sm:px-6 lg:px-8 flex h-16 items-center justify-between'}>
                 <Link to="/">
-                    <img src={isDark ? '/logo.png' : '/logo2.png'} alt="Klimate logo" className={'h-14'}/>
+                    <img src={isDark ? '/klimate-app/logo.png' : '/klimate-app/logo2.png'} alt="Klimate logo" className={'h-14'}/>
                 </Link>
 
                 <div className={"flex gap-4"}>
