@@ -9,11 +9,11 @@ export default function Header() {
 
     return (
         <header
-            className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60 overflow-hidden">
+            className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-0 sm:py-1 lg:py-2 supports-[backdrop-filter]:bg-background/60 overflow-hidden">
             <div className={'container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between'}>
                 <Link to="/">
                     <img src={isDark ? '/klimate_app/logo.png' : '/klimate_app/logo2.png'} alt="Klimate logo"
-                         className={'h-14'}/>
+                         className={'h-12 sm:h-12 md:h-13 lg:h-14'}/>
                 </Link>
 
                 <div className={"flex gap-4 "}>

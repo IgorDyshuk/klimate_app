@@ -24,8 +24,8 @@ export default function FavouriteCities() {
     return (
         <>
             <h1 className={"text-xl font-bold tracking-tight"}>Favourites</h1>
-            <ScrollArea className="w-full pb-4">
-                <div className="flex gap-4">
+            <ScrollArea className="w-full -mr-4 sm:-mr-6 lg:-mr-8 pb-4">
+                <div className="flex gap-4 w-max pr-4 sm:pr-6 lg:pr-8">
                     {favourites.map((city) => {
                         return <FavouriteCityTablet
                             key={city.id}
