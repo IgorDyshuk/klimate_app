@@ -54,7 +54,7 @@ export default function WeatherDetails({data}: WeatherDetailsProps) {
                 <CardTitle>Weather Details</CardTitle>
             </CardHeader>
             <CardContent>
-                <div className={"grid gap-6 sm:grid-cols-2"}>
+                <div className={"grid gap-4 sm:grid-cols-2 lg:gap-6"}>
                     {details.map((detail) => {
                         return <div
                             key={detail.title}

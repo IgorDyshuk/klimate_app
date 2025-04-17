@@ -59,11 +59,11 @@ export default function WeatherForecast({data}: WeatherForecastProps) {
                                 className={"grid grid-cols-3 items-center gap-4 rounded-lg border p-4"}
                             >
                                 <div>
-                                    <p className={"font-medium"}>{format(new Date(day.date * 1000), "EEE, MMM d ")}</p>
-                                    <p className={"text-sm text-muted-foreground capitalize"}>{day.weather.description}</p>
+                                    <p className={"font-medium text-nowrap"}>{format(new Date(day.date * 1000), "EEE, MMM d ")}</p>
+                                    <p className={"text-sm text-muted-foreground capitalize text-nowrap"}>{day.weather.description}</p>
                                 </div>
 
-                                <div className={"flex justify-center gap-4"}>
+                                <div className={"flex flex-col-reverse items-end sm:flex-row justify-center gap-4"}>
                                     <span className={"flex items-center text-blue-500"}>
                                         <ArrowDown className="h-4 w-4 mr-1" />
                                         {formatTemp(day.temp_min)}
@@ -74,7 +74,7 @@ export default function WeatherForecast({data}: WeatherForecastProps) {
                                     </span>
                                 </div>
 
-                                <div className={"flex justify-end gap-4"}>
+                                <div className={"flex flex-col-reverse items-center sm:flex-row justify-end gap-4"}>
                                     <span className={"flex items-center gap-1"}>
                                         <Droplets className={"h-4 w-4 text-blue-500"}/>
                                         <span className={"text-sm"}>{day.humidity}%</span>
