@@ -22,8 +22,8 @@ export default function HourlyTemperature({data}: HourlyTemperatureProps) {
                 <CardTitle>Today's Temperature </CardTitle>
             </CardHeader>
             <CardContent>
-                <div className="h-[200px] w-full">
-                    <ResponsiveContainer width={"100%"} height={"100%"}>
+                <div className="h-[200px] w-full p-0 px-0">
+                    <ResponsiveContainer width={"103%"} height={"100%"} className="-ml-6 sm:-ml-10 md:-ml-8">
                         <LineChart data={chartData}>
                             <XAxis
                                 dataKey="time"
