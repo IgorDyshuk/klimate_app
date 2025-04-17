@@ -2,6 +2,7 @@ import {ForecastData} from "@/api/types.ts";
 import {format} from "date-fns";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {ArrowDown, ArrowUp, Droplets} from "lucide-react";
+import {useEffect, useRef, useState} from "react";
 
 interface WeatherForecastProps {
     data: ForecastData;
@@ -44,7 +45,21 @@ export default function WeatherForecast({data}: WeatherForecastProps) {
     const nextDays = Object.values(dailyForecast).slice(0, 6);
 
 
-    const formatTemp = ( temp: number) => `${Math.round(temp)}°`
+    const formatTemp = (temp: number) => `${Math.round(temp)}°`
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isWide, setIsWide] = useState(true);
+
+    useEffect(() => {
+        const observer = new ResizeObserver(([entry]) => {
+            setIsWide(entry.contentRect.width > 470);
+        })
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, [])
 
     return (
         <Card>
@@ -52,7 +67,7 @@ export default function WeatherForecast({data}: WeatherForecastProps) {
                 <CardTitle>5-Day Forecast</CardTitle>
             </CardHeader>
             <CardContent>
-                <div className={"grid gap-4"}>
+                <div ref={containerRef} id={"forecast-div"} className={"grid gap-4"}>
                     {nextDays.map((day) => {
                             return <div
                                 key={day.date}
@@ -63,25 +78,35 @@ export default function WeatherForecast({data}: WeatherForecastProps) {
                                     <p className={"text-sm text-muted-foreground capitalize text-nowrap"}>{day.weather.description}</p>
                                 </div>
 
-                                <div className={"flex flex-col-reverse items-end sm:flex-row justify-center gap-4"}>
+                                {/*temperature info*/}
+                                <div className={`flex ${
+                                    isWide
+                                        ? "flex-row justify-center gap-4"
+                                        : "flex-col-reverse items-end"
+                                }`}>
                                     <span className={"flex items-center text-blue-500"}>
-                                        <ArrowDown className="h-4 w-4 mr-1" />
+                                        <ArrowDown className="h-4 w-4 mr-1"/>
                                         {formatTemp(day.temp_min)}
                                     </span>
                                     <span className={"flex items-center text-red-500"}>
-                                        <ArrowUp className="h-4 w-4 mr-1" />
+                                        <ArrowUp className="h-4 w-4 mr-1"/>
                                         {formatTemp(day.temp_max)}
                                     </span>
                                 </div>
 
-                                <div className={"flex flex-col-reverse items-center sm:flex-row justify-end gap-4"}>
+                                {/*detailed information*/}
+                                <div className={`flex ${
+                                    isWide
+                                        ? "flex-row justify-end gap-4"
+                                        : "flex-col-reverse items-center"
+                                }`}>
                                     <span className={"flex items-center gap-1"}>
                                         <Droplets className={"h-4 w-4 text-blue-500"}/>
                                         <span className={"text-sm"}>{day.humidity}%</span>
                                     </span>
                                     <span className={"flex items-center gap-1"}>
                                         <Droplets className={"h-4 w-4 text-blue-500"}/>
-                                        <span className={"text-sm"}>{day.wind}m/s</span>
+                                        <span className={"text-sm text-nowrap"}>{day.wind}m/s</span>
                                     </span>
                                 </div>
                             </div>
